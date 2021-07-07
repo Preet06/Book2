@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<br lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+
+
+</head>
+<body>
+<br>
+<form action="add">   
+    <button type="submit">Add Books</button>
+</br>
+</form>
+</br>
+<form method="GET">
+    {% csrf_token %}
+
+
+
+
+    
+    <div id="list1" class="dropdown-check-list" tabindex="100">
+        <span class="anchor">Select Language</span>
+        <ul class="items">
+        {% for i in lan %}
+               
+          <li><input type="checkbox" name="Language" class="chkvalues" value="{{i.Language}}"/>{{i.Language}}</li>
+        {% endfor %}
+        </ul>
+      </div>
+
+
+      <div id="list11" class="dropdown-check-list" tabindex="100">
+        <span class="anchor">Select Genre</span>
+        <ul class="items">
+        {% for i in gen %}
+               
+          <li><input type="checkbox" name="Genre" class="chkvalues" value="{{i.Genre}}"/>{{i.Genre}}</li>
+        {% endfor %}
+        </ul>
+      </div>
+
+
+
+
+
+
+    <input type="submit" value="search">   
+</form>
+</br>
+</br>
+
+{% for i in data %}
+   <label> Book_Name :</label> {{ i.Book_Name}} </br>
+   <label> Author :</label>{{ i.Author }} </br>
+   <label> Genre :</label>{{ i.Genre }} </br>
+   <label> Language :</label>{{ i.Language }} </br>
+   <hr>
+   <hr>
+{% endfor %}
+
+
+
+
+
+<form action="">
+    <button type="submit">Explore Books</button>
+</form>
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
+<link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+<style>
+    .dropdown-check-list {
+  display: inline-block;
+}
+
+.dropdown-check-list .anchor {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  padding: 5px 50px 5px 10px;
+  border: 1px solid #ccc;
+}
+
+.dropdown-check-list .anchor:after {
+  position: absolute;
+  content: "";
+  border-left: 2px solid black;
+  border-top: 2px solid black;
+  padding: 5px;
+  right: 10px;
+  top: 20%;
+  -moz-transform: rotate(-135deg);
+  -ms-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+}
+
+.dropdown-check-list .anchor:active:after {
+  right: 8px;
+  top: 21%;
+}
+
+.dropdown-check-list ul.items {
+  padding: 2px;
+  display: none;
+  margin: 0;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+.dropdown-check-list ul.items li {
+  list-style: none;
+}
+
+.dropdown-check-list.visible .anchor {
+  color: #0094ff;
+}
+
+.dropdown-check-list.visible .items {
+  display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.dropdown-check-list1 {
+  display: inline-block;
+}
+
+.dropdown-check-list1 .anchor1 {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  padding: 5px 50px 5px 10px;
+  border: 1px solid #ccc;
+}
+
+.dropdown-check-list1 .anchor1:after {
+  position: absolute;
+  content: "";
+  border-left: 2px solid black;
+  border-top: 2px solid black;
+  padding: 5px;
+  right: 10px;
+  top: 20%;
+  -moz-transform: rotate(-135deg);
+  -ms-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+}
+
+.dropdown-check-list1 .anchor1:active:after {
+  right: 8px;
+  top: 21%;
+}
+
+.dropdown-check-list1 ul.items1 {
+  padding: 2px;
+  display: none;
+  margin: 0;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+.dropdown-check-list1 ul.items1 li {
+  list-style: none;
+}
+
+.dropdown-check-list1.visible .anchor1 {
+  color: #0094ff;
+}
+
+.dropdown-check-list1.visible .items1 {
+  display: block;
+}
+
+
+
+
+
+
+
+
+
+</style>
+
+<script>
+
+
+var checkList = document.getElementById('list1');
+checkList.getElementsByClassName('anchor')[0].onclick = function(evt) {
+  if (checkList.classList.contains('visible'))
+    checkList.classList.remove('visible');
+  else
+    checkList.classList.add('visible');
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+var checkList1 = document.getElementById('list11');
+checkList1.getElementsByClassName('anchor')[0].onclick = function(evt) {
+  if (checkList1.classList.contains('visible'))
+    checkList1.classList.remove('visible');
+  else
+    checkList1.classList.add('visible');
+
+
+}
+
+
+
+
+
+
+
+</script>
+</html>
